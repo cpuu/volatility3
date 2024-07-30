@@ -25,30 +25,7 @@ class NetScan(interfaces.plugins.PluginInterface, timeliner.TimeLinerInterface):
     _required_framework_version = (2, 0, 0)
     _version = (1, 0, 0)
 
-    @classmethod
-    def get_requirements(cls):
-        return [
-            requirements.ModuleRequirement(
-                name="kernel",
-                description="Windows kernel",
-                architectures=["Intel32", "Intel64"],
-            ),
-            requirements.VersionRequirement(
-                name="poolscanner", component=poolscanner.PoolScanner, version=(1, 0, 0)
-            ),
-            requirements.VersionRequirement(
-                name="info", component=info.Info, version=(1, 0, 0)
-            ),
-            requirements.VersionRequirement(
-                name="verinfo", component=verinfo.VerInfo, version=(1, 0, 0)
-            ),
-            requirements.BooleanRequirement(
-                name="include-corrupt",
-                description="Radically eases result validation. This will show partially overwritten data. WARNING: the results are likely to include garbage and/or corrupt data. Be cautious!",
-                default=False,
-                optional=True,
-            ),
-        ]
+
 
     @staticmethod
     def create_netscan_constraints(
