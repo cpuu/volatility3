@@ -28,7 +28,7 @@ class Lsmod(plugins.PluginInterface):
             requirements.ModuleRequirement(
                 name="kernel",
                 description="Linux kernel",
-                architectures=constants.architectures.LINUX_ARCHS,
+                architectures=[*constants.architectures.LINUX_ARCHS, "AArch64"],
             ),
             requirements.VersionRequirement(
                 name="linux_utilities_modules",
